@@ -18,7 +18,7 @@ public class GUI extends JFrame implements ActionListener {
         setTitle("Figurative");
         menubar = new JMenuBar();
         setJMenuBar(menubar);
-        getContentPane().setBackground(new Color (0,0,0));
+        getContentPane().setBackground(new Color (245, 245, 245));
         
         menu1 = new JMenu("Opciones");
         menubar.add(menu1);
@@ -59,17 +59,17 @@ public class GUI extends JFrame implements ActionListener {
         btnSalir.setContentAreaFilled(false);
         add(btnSalir);
         
-        ImageIcon fonOscuro = new ImageIcon("src/images/figurativeOsc.png");
-        jlImagen = new JLabel(fonOscuro);
-        jlImagen.setBounds(0, 0, 727, 458);
-        jlImagen.setVisible(true);
-        add(jlImagen);
-        
         ImageIcon fonClaro = new ImageIcon("src/images/figurativeCro.png");
         jlImagen2 = new JLabel(fonClaro);
         jlImagen2.setBounds(0, 0, 727, 458);
-        jlImagen2.setVisible(false);
+        jlImagen2.setVisible(true);
         add(jlImagen2);
+        
+        ImageIcon fonOscuro = new ImageIcon("src/images/figurativeOsc.png");
+        jlImagen = new JLabel(fonOscuro);
+        jlImagen.setBounds(0, 0, 727, 458);
+        jlImagen.setVisible(false);
+        add(jlImagen);
     }
     
     // Se crea la interfaz donde todos los elementos se plasmaran
