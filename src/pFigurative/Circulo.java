@@ -9,13 +9,19 @@ public class Circulo extends JFrame implements ActionListener {
 
     // Creacion de los componentes del JFrame
     private JTextField txtRadio, txtDiametroCrc, txtPerimetroCrc, txtAreaCrc;
-    private JLabel jlDiametro, jl1c, jl2c, jl12c, jl3c, jl4c, jl5c, jl6c, jl7c;
-    private JButton btninfCrc, btnPruebaCrc, btnRegresarCrc;
+    private JLabel jlDiametro, jl1c, jl2c, jl12c, jl3c, jl4c, jl5c, jl6c, jl7c, jRCr, jVCr, jACr;
+    private JButton btninfCrc, btnPruebaCrc, btnRegresarCrc, btnEditarCrc;
     private JMenuBar menubarcrc;
     private JMenu menu1crc, menu2crc;
     private JMenuItem jmi1crc, jmi2crc;
     private int R1, G1, B1;
     private Color color = new Color(0,0,0);
+    private Color blanco = new Color(255, 255, 255);
+    private Color lila = new Color(156, 0, 188);
+    private Color negro = new Color (0, 0, 0);
+    private Color fondoOsc = new Color(52, 52, 52);
+    private Color gris = new Color(40, 40, 40);
+    private Color fondoCro = new Color(245 , 245, 245);
     private JSlider slRCrc, slGCrc, slBCrc;
     private double r=10;
 
@@ -25,7 +31,7 @@ public class Circulo extends JFrame implements ActionListener {
         setTitle("Figurative");
         menubarcrc = new JMenuBar();
         setJMenuBar(menubarcrc);
-        getContentPane().setBackground(new Color(52, 52, 52));
+        getContentPane().setBackground(fondoCro);
 
         // Creacion del pequeño menu
         menu1crc = new JMenu("Opciones");
@@ -42,7 +48,7 @@ public class Circulo extends JFrame implements ActionListener {
         // Creacion de los sliders
         slRCrc = new JSlider();
         slRCrc.setBounds(115, 360, 255, 15);
-        slRCrc.setBackground(new Color(52, 52, 52));
+        slRCrc.setBackground(new Color(245, 245, 245));
         slRCrc.setValue(0);
         slRCrc.setMaximum(255);
         slRCrc.setMajorTickSpacing(1);
@@ -59,7 +65,7 @@ public class Circulo extends JFrame implements ActionListener {
 
         slGCrc = new JSlider();
         slGCrc.setBounds(115, 410, 255, 15);
-        slGCrc.setBackground(new Color(52, 52, 52));
+        slGCrc.setBackground(new Color(245, 245, 245));
         slGCrc.setValue(0);
         slGCrc.setMaximum(255);
         slGCrc.setMajorTickSpacing(1);
@@ -74,7 +80,7 @@ public class Circulo extends JFrame implements ActionListener {
 
         slBCrc = new JSlider();
         slBCrc.setBounds(115, 454, 255, 15);
-        slBCrc.setBackground(new Color(52, 52, 52));
+        slBCrc.setBackground(new Color(245, 245, 245));
         slBCrc.setValue(0);
         slBCrc.setMaximum(255);
         slBCrc.setMajorTickSpacing(1);
@@ -90,84 +96,110 @@ public class Circulo extends JFrame implements ActionListener {
         jl1c = new JLabel("Figura seleccionada: Circulo");
         jl1c.setBounds(85, 40, 250, 20);
         jl1c.setFont(new Font("Verdana", Font.BOLD, 14));
-        jl1c.setForeground(new Color(255, 255, 255));
+        jl1c.setForeground(new Color(0, 0, 0));
         add(jl1c);
 
         jl12c = new JLabel("Radio: ");
         jl12c.setBounds(40, 77, 250, 20);
-        jl12c.setForeground(new Color(255, 255, 255));
+        jl12c.setForeground(new Color(0, 0, 0));
         jl12c.setFont(new Font("Verdana", Font.BOLD, 13));
         add(jl12c);
 
         jl2c = new JLabel("Fórmula:     πr²");
         jl2c.setBounds(40, 178, 250, 20);
-        jl2c.setForeground(new Color(255, 255, 255));
+        jl2c.setForeground(new Color(0, 0, 0));
         jl2c.setFont(new Font("Verdana", Font.BOLD, 14));
         add(jl2c);
 
         jlDiametro = new JLabel("Diametro: ");
         jlDiametro.setBounds(40, 218, 250, 20);
-        jlDiametro.setForeground(new Color(255, 255, 255));
+        jlDiametro.setForeground(new Color(0, 0, 0));
         jlDiametro.setFont(new Font("Verdana", Font.BOLD, 13));
         add(jlDiametro);
 
         jl3c = new JLabel("Perimetro: ");
         jl3c.setBounds(40, 263, 250, 20);
-        jl3c.setForeground(new Color(255, 255, 255));
+        jl3c.setForeground(new Color(0, 0, 0));
         jl3c.setFont(new Font("Verdana", Font.BOLD, 13));
         add(jl3c);
 
         jl4c = new JLabel("Area: ");
         jl4c.setBounds(40, 308, 250, 20);
-        jl4c.setForeground(new Color(255, 255, 255));
+        jl4c.setForeground(new Color(0, 0, 0));
         jl4c.setFont(new Font("Verdana", Font.BOLD, 13));
         add(jl4c);
 
         jl5c = new JLabel("Rojo: ");
         jl5c.setBounds(40, 353, 250, 20);
-        jl5c.setForeground(new Color(255, 255, 255));
+        jl5c.setForeground(new Color(0, 0, 0));
         jl5c.setFont(new Font("Verdana", Font.BOLD, 13));
         add(jl5c);
 
         jl6c = new JLabel("Verde: ");
         jl6c.setBounds(40, 404, 250, 20);
-        jl6c.setForeground(new Color(255, 255, 255));
+        jl6c.setForeground(new Color(0, 0, 0));
         jl6c.setFont(new Font("Verdana", Font.BOLD, 13));
         add(jl6c);
 
         jl7c = new JLabel("Azul: ");
         jl7c.setBounds(40, 445, 250, 20);
-        jl7c.setForeground(new Color(255, 255, 255));
+        jl7c.setForeground(new Color(0, 0, 0));
         jl7c.setFont(new Font("Verdana", Font.BOLD, 13));
         add(jl7c);
 
+        jRCr = new JLabel("R: 0");
+        jRCr.setBounds(55, 485, 60, 25);
+        jRCr.setForeground(new Color(0, 0, 0));
+        jRCr.setFont(new Font("Verdana", Font.BOLD, 13));
+        add(jRCr);
+
+        jVCr = new JLabel("G: 0");
+        jVCr.setBounds(155, 485, 60, 25);
+        jVCr.setForeground(new Color(0, 0, 0));
+        jVCr.setFont(new Font("Verdana", Font.BOLD, 13));
+        add(jVCr);
+
+        jACr = new JLabel("B: 0");
+        jACr.setBounds(255, 485, 60, 25);
+        jACr.setForeground(new Color(0, 0, 0));
+        jACr.setFont(new Font("Verdana", Font.BOLD, 13));
+        add(jACr);
+        
         txtRadio = new JTextField("Ingresa el valor del radio");
+        txtRadio.setEditable(false);
         txtRadio.setBounds(115, 79, 250, 20);
-        txtRadio.setBackground(new Color(52, 52, 52));
-        txtRadio.setForeground(new Color(255, 255, 255));
+        txtRadio.setBackground(new Color(245, 245, 245));
+        txtRadio.setForeground(new Color(0, 0, 0));
         txtRadio.setBorder(null);
         txtRadio.setVisible(true);
         add(txtRadio);
 
-        btninfCrc = new JButton("Mandar informacion");
-        btninfCrc.setBounds(80, 120, 230, 25);
-        btninfCrc.setBackground(new Color(40, 40, 40));
+        btnEditarCrc = new JButton("Editar");
+        btnEditarCrc.setBounds(50, 120, 130, 25);
+        btnEditarCrc.setBackground(new Color(156, 0, 188));
+        btnEditarCrc.setForeground(new Color(255, 255, 255));
+        btnEditarCrc.addActionListener(this);
+        add(btnEditarCrc);
+        
+        btninfCrc = new JButton("Enviar");
+        btninfCrc.setBounds(200, 120, 130, 25);
+        btninfCrc.setBackground(new Color(156, 0, 188));
         btninfCrc.setForeground(new Color(255, 255, 255));
         btninfCrc.addActionListener(this);
         add(btninfCrc);
 
         btnRegresarCrc = new JButton("Regresar");
-        btnRegresarCrc.setBounds(625, 485, 95, 20);
-        btnRegresarCrc.setBackground(new Color(40, 40, 40));
+        btnRegresarCrc.setBounds(625, 455, 95, 20);
+        btnRegresarCrc.setBackground(new Color(156, 0, 188));
         btnRegresarCrc.setForeground(new Color(255, 255, 255));
         btnRegresarCrc.addActionListener(this);
         add(btnRegresarCrc);
 
-        btnPruebaCrc = new JButton("Vista Previa");
-        btnPruebaCrc.setBounds(275, 480, 100, 25);
+        btnPruebaCrc = new JButton("Salir");
+        btnPruebaCrc.setBounds(625, 485, 95, 20);
         btnPruebaCrc.addActionListener(this);
         btnPruebaCrc.setBorder(null);
-        btnPruebaCrc.setBackground(new Color(40, 40, 40));
+        btnPruebaCrc.setBackground(new Color(156, 0, 188));
         btnPruebaCrc.setForeground(new Color(255, 255, 255));
         add(btnPruebaCrc);
 
@@ -175,8 +207,8 @@ public class Circulo extends JFrame implements ActionListener {
         txtDiametroCrc = new JTextField("0 unidades");
         txtDiametroCrc.setEditable(false);
         txtDiametroCrc.setBounds(140, 219, 250, 20);
-        txtDiametroCrc.setBackground(new Color(52, 52, 52));
-        txtDiametroCrc.setForeground(new Color(255, 255, 255));
+        txtDiametroCrc.setBackground(new Color(245, 245, 245));
+        txtDiametroCrc.setForeground(new Color(0, 0, 0));
         txtDiametroCrc.setVisible(true);
         txtDiametroCrc.setBorder(null);
         add(txtDiametroCrc);
@@ -184,8 +216,8 @@ public class Circulo extends JFrame implements ActionListener {
         txtPerimetroCrc = new JTextField("0 unidades");
         txtPerimetroCrc.setEditable(false);
         txtPerimetroCrc.setBounds(140, 264, 250, 20);
-        txtPerimetroCrc.setBackground(new Color(52, 52, 52));
-        txtPerimetroCrc.setForeground(new Color(255, 255, 255));
+        txtPerimetroCrc.setBackground(new Color(245, 245, 245));
+        txtPerimetroCrc.setForeground(new Color(0, 0, 0));
         txtPerimetroCrc.setVisible(true);
         txtPerimetroCrc.setBorder(null);
         add(txtPerimetroCrc);
@@ -193,8 +225,8 @@ public class Circulo extends JFrame implements ActionListener {
         txtAreaCrc = new JTextField("0 unidades cuadradas");
         txtAreaCrc.setEditable(false);
         txtAreaCrc.setBounds(122, 310, 250, 20);
-        txtAreaCrc.setBackground(new Color(52, 52, 52));
-        txtAreaCrc.setForeground(new Color(255, 255, 255));
+        txtAreaCrc.setBackground(new Color(245, 245, 245));
+        txtAreaCrc.setForeground(new Color(0, 0, 0));
         txtAreaCrc.setVisible(true);
         txtAreaCrc.setBorder(null);
         add(txtAreaCrc);
@@ -205,8 +237,15 @@ public class Circulo extends JFrame implements ActionListener {
         R1 = slRCrc.getValue();
         G1 = slGCrc.getValue();
         B1 = slBCrc.getValue();
+        jRCr.setText("R: " + R1);
+        jVCr.setText("G: " + G1);
+        jACr.setText("B: " + B1);
         color = new Color(R1,G1,B1);
+        btninfCrc.setBackground(color);
+        btnEditarCrc.setBackground(color);
         btnPruebaCrc.setBackground(color);
+        btnRegresarCrc.setBackground(color);
+        repaint(); //Metodo que permite que la figura cambie de color en tiempo real
     }
 
     // Creacion de la interfaz
@@ -250,65 +289,83 @@ public class Circulo extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == btnPruebaCrc) {
-            repaint();
+            System.exit(0);
+        }
+        
+        if (e.getSource() == btnEditarCrc ){
+            txtRadio.setEditable(true);
+            txtRadio.setText("");
+            txtDiametroCrc.setText("0 unidades");
+            txtPerimetroCrc.setText("0 unidades");
+            txtAreaCrc.setText("0 unidades cuadradas");
         }
 
         // Configuracion del modo claro
         if (e.getSource() == jmi1crc) {
-            getContentPane().setBackground(new Color(245, 245, 245));
-            btninfCrc.setBackground(new Color(156, 0, 188));
-            btnPruebaCrc.setBackground(new Color(156, 0, 188));
-            btnRegresarCrc.setBackground(new Color(156, 0, 188));
-            jlDiametro.setForeground(new Color(0, 0, 0));
-            jl1c.setForeground(new Color(0, 0, 0));
-            jl12c.setForeground(new Color(0, 0, 0));
-            jl2c.setForeground(new Color(0, 0, 0));
-            jl3c.setForeground(new Color(0, 0, 0));
-            jl4c.setForeground(new Color(0, 0, 0));
-            jl5c.setForeground(new Color(0, 0, 0));
-            jl6c.setForeground(new Color(0, 0, 0));
-            jl7c.setForeground(new Color(0, 0, 0));
-            slRCrc.setBackground(new Color(245, 245, 245));
-            slGCrc.setBackground(new Color(245, 245, 245));
-            slBCrc.setBackground(new Color(245, 245, 245));
-            txtRadio.setBackground(new Color(245, 245, 245));
-            txtRadio.setForeground(new Color(0, 0, 0));
-            txtDiametroCrc.setBackground(new Color(245, 245, 245));
-            txtPerimetroCrc.setBackground(new Color(245, 245, 245));
-            txtAreaCrc.setBackground(new Color(245, 245, 245));
-            txtDiametroCrc.setForeground(new Color(0, 0, 0));
-            txtPerimetroCrc.setForeground(new Color(0, 0, 0));
-            txtAreaCrc.setForeground(new Color(0, 0, 0));
+            getContentPane().setBackground(fondoCro);
+            btninfCrc.setBackground(lila);
+            btnPruebaCrc.setBackground(lila);
+            btnRegresarCrc.setBackground(lila);
+            btnEditarCrc.setBackground(lila);
+            jlDiametro.setForeground(negro);
+            jRCr.setForeground(negro);
+            jVCr.setForeground(negro);
+            jACr.setForeground(negro);
+            jl1c.setForeground(negro);
+            jl12c.setForeground(negro);
+            jl2c.setForeground(negro);
+            jl3c.setForeground(negro);
+            jl4c.setForeground(negro);
+            jl5c.setForeground(negro);
+            jl6c.setForeground(negro);
+            jl7c.setForeground(negro);
+            slRCrc.setBackground(fondoCro);
+            slGCrc.setBackground(fondoCro);
+            slBCrc.setBackground(fondoCro);
+            txtRadio.setBackground(fondoCro);
+            txtRadio.setForeground(negro);
+            txtDiametroCrc.setBackground(fondoCro);
+            txtPerimetroCrc.setBackground(fondoCro);
+            txtAreaCrc.setBackground(fondoCro);
+            txtDiametroCrc.setForeground(negro);
+            txtPerimetroCrc.setForeground(negro);
+            txtAreaCrc.setForeground(negro);
         }
 
         // Configuracion del modo oscuro
         if (e.getSource() == jmi2crc) {
             getContentPane().setBackground(new Color(52, 52, 52));
-            btninfCrc.setBackground(new Color(40, 40, 40));
-            btnPruebaCrc.setBackground(new Color(40, 40, 40));
-            btnRegresarCrc.setBackground(new Color(40, 40, 40));
-            jlDiametro.setForeground(new Color(255, 255, 255));
-            jl1c.setForeground(new Color(255, 255, 255));
-            jl12c.setForeground(new Color(255, 255, 255));
-            jl2c.setForeground(new Color(255, 255, 255));
-            jl3c.setForeground(new Color(255, 255, 255));
-            jl4c.setForeground(new Color(255, 255, 255));
-            jl5c.setForeground(new Color(255, 255, 255));
-            jl6c.setForeground(new Color(255, 255, 255));
-            jl7c.setForeground(new Color(255, 255, 255));
-            slRCrc.setBackground(new Color(52, 52, 52));
-            slGCrc.setBackground(new Color(52, 52, 52));
-            slBCrc.setBackground(new Color(52, 52, 52));
-            txtRadio.setBackground(new Color(52, 52, 52));
-            txtRadio.setForeground(new Color(255, 255, 255));
-            txtDiametroCrc.setBackground(new Color(52, 52, 52));
-            txtPerimetroCrc.setBackground(new Color(52, 52, 52));
-            txtAreaCrc.setBackground(new Color(52, 52, 52));
-            txtDiametroCrc.setForeground(new Color(255, 255, 255));
-            txtPerimetroCrc.setForeground(new Color(255, 255, 255));
-            txtAreaCrc.setForeground(new Color(255, 255, 255));
+            btninfCrc.setBackground(gris);
+            btnPruebaCrc.setBackground(gris);
+            btnRegresarCrc.setBackground(gris);
+            btnEditarCrc.setBackground(gris);
+            jlDiametro.setForeground(blanco);
+            jRCr.setForeground(blanco);
+            jVCr.setForeground(blanco);
+            jACr.setForeground(blanco);
+            jl1c.setForeground(blanco);
+            jl12c.setForeground(blanco);
+            jl2c.setForeground(blanco);
+            jl3c.setForeground(blanco);
+            jl4c.setForeground(blanco);
+            jl5c.setForeground(blanco);
+            jl6c.setForeground(blanco);
+            jl7c.setForeground(blanco);
+            slRCrc.setBackground(fondoOsc);
+            slGCrc.setBackground(fondoOsc);
+            slBCrc.setBackground(fondoOsc);
+            txtRadio.setBackground(fondoOsc);
+            txtRadio.setForeground(blanco);
+            txtDiametroCrc.setBackground(fondoOsc);
+            txtPerimetroCrc.setBackground(fondoOsc);
+            txtAreaCrc.setBackground(fondoOsc);
+            txtDiametroCrc.setForeground(blanco);
+            txtPerimetroCrc.setForeground(blanco);
+            txtAreaCrc.setForeground(blanco);
         }
     }
+    
+    // Metodo que permite la creación del circulo
     @Override
     public void paint(Graphics g){
     

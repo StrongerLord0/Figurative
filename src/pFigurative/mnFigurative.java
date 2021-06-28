@@ -1,7 +1,15 @@
 /*
  * Documentación de Aplicacion Figurative.
- * Equipo 1 | Unidad 4 |
+ * Equipo 1 | Unidad 5 y 6 |
  * Fecha de Elaboracion: 26 / Agosto / 2021
+ * Docente: Juana Garcia Seañez
+ */
+
+ /*
+ * Autores (Elaborado por):
+ * Alvarez Gutierrez Arturo Misael, Corral Quezada Adrian
+ * Gerard Ramos Elian Ramiro, Gil Najera Karen Vanessa
+ * Najera Ruiz Roman, Salazar Campos Jesus Adan
  */
 
 package pFigurative;
@@ -24,6 +32,7 @@ public class mnFigurative {
         UIManager.put("Button.background", new Color(156,0,188));
         UIManager.put("Button.foreground", new Color(255,255,255));
         
+        // Uso de bloque Try-Catch
         try {
             interfaz.GUI();
         } catch (Exception e) {
