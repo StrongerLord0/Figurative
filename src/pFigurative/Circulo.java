@@ -10,7 +10,7 @@ public class Circulo extends JFrame implements ActionListener {
     // Creacion de los componentes del JFrame
     private JTextField txtRadio, txtDiametroCrc, txtPerimetroCrc, txtAreaCrc;
     private JLabel jlDiametro, jl1c, jl2c, jl12c, jl3c, jl4c, jl5c, jl6c, jl7c;
-    private JButton btninfCrc, btnPruebaCrc, btnRegresarCrc;
+    private JButton btninfCrc, btnPruebaCrc, btnRegresarCrc, btnEditarCrc;
     private JMenuBar menubarcrc;
     private JMenu menu1crc, menu2crc;
     private JMenuItem jmi1crc, jmi2crc;
@@ -142,6 +142,7 @@ public class Circulo extends JFrame implements ActionListener {
         add(jl7c);
 
         txtRadio = new JTextField("Ingresa el valor del radio");
+        txtRadio.setEditable(false);
         txtRadio.setBounds(115, 79, 250, 20);
         txtRadio.setBackground(new Color(52, 52, 52));
         txtRadio.setForeground(new Color(255, 255, 255));
@@ -149,8 +150,15 @@ public class Circulo extends JFrame implements ActionListener {
         txtRadio.setVisible(true);
         add(txtRadio);
 
-        btninfCrc = new JButton("Mandar informacion");
-        btninfCrc.setBounds(80, 120, 230, 25);
+        btnEditarCrc = new JButton("Editar");
+        btnEditarCrc.setBounds(50, 120, 130, 25);
+        btnEditarCrc.setBackground(new Color(40, 40, 40));
+        btnEditarCrc.setForeground(new Color(255, 255, 255));
+        btnEditarCrc.addActionListener(this);
+        add(btnEditarCrc);
+        
+        btninfCrc = new JButton("Enviar");
+        btninfCrc.setBounds(200, 120, 130, 25);
         btninfCrc.setBackground(new Color(40, 40, 40));
         btninfCrc.setForeground(new Color(255, 255, 255));
         btninfCrc.addActionListener(this);
@@ -252,6 +260,11 @@ public class Circulo extends JFrame implements ActionListener {
         if (e.getSource() == btnPruebaCrc) {
             repaint();
         }
+        
+        if (e.getSource() == btnEditarCrc ){
+            txtRadio.setEditable(true);
+            txtRadio.setText("");
+        }
 
         // Configuracion del modo claro
         if (e.getSource() == jmi1crc) {
@@ -259,6 +272,7 @@ public class Circulo extends JFrame implements ActionListener {
             btninfCrc.setBackground(new Color(156, 0, 188));
             btnPruebaCrc.setBackground(new Color(156, 0, 188));
             btnRegresarCrc.setBackground(new Color(156, 0, 188));
+            btnEditarCrc.setBackground(new Color(156, 0, 188));
             jlDiametro.setForeground(new Color(0, 0, 0));
             jl1c.setForeground(new Color(0, 0, 0));
             jl12c.setForeground(new Color(0, 0, 0));
@@ -287,6 +301,7 @@ public class Circulo extends JFrame implements ActionListener {
             btninfCrc.setBackground(new Color(40, 40, 40));
             btnPruebaCrc.setBackground(new Color(40, 40, 40));
             btnRegresarCrc.setBackground(new Color(40, 40, 40));
+            btnEditarCrc.setBackground(new Color(40, 40, 40));
             jlDiametro.setForeground(new Color(255, 255, 255));
             jl1c.setForeground(new Color(255, 255, 255));
             jl12c.setForeground(new Color(255, 255, 255));
