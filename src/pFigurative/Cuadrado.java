@@ -363,10 +363,10 @@ public class Cuadrado extends JFrame implements ActionListener {
         }
         g.setColor(colorrojo);
         mid = z * mid / 2;
-        g.drawLine(400 + mid, 60, 400 + mid, 400);
+        g.drawLine(400 + mid, 60, 400 + mid, 460);
         g.drawLine(400, mid + 60, 765, mid + 60);
         g.setColor(color);
         g.drawRect((int) (400 + mid - (z * lado2 / 2)), (int) (60 + mid - (z * lado2 / 2)), (int) (lado2 * z), (int) (lado2 * z));
         g.fillRect((int) (400 + mid - (z * lado2 / 2)), (int) (60 + mid - (z * lado2 / 2)), (int) (lado2 * z), (int) (lado2 * z));
-    }
+}
 }
